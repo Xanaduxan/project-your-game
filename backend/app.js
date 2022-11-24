@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const FileStore = require('session-file-store')(expressSession);
 const morgan = require('morgan');
+const cors = require('cors');
 const sessionMiddleware = require('./middleware/session');
 const routesRouter = require('./Routes/routes');
 
@@ -29,5 +30,6 @@ app.use(sessionMiddleware);
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = 4000;
-// app.use('/', routesRouter);
+app.use('/', routesRouter);
+app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
 app.listen(PORT, () => { console.log('я проснулся'); });
