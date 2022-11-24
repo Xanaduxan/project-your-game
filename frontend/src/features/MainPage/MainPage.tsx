@@ -1,8 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
+  const navigate = useNavigate();
+  function onHandleNavigate(): void {
+    navigate(`/play`);
+  }
   return (
-    <div>MainPage</div>
+    <button onClick={onHandleNavigate}>Играть</button>
   )
 }
 
