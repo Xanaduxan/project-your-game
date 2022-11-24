@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const sessionMiddleware = require('./middleware/session');
 const routesRouter = require('./Routes/routes');
+const apiRoute = require('./Routes/apiRoute')
 
 const sessionConfig = {
   store: new FileStore(),
@@ -31,5 +32,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = 4000;
 app.use('/', routesRouter);
+
+
+
 app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
 app.listen(PORT, () => { console.log('я проснулся'); });
