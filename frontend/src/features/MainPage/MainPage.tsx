@@ -1,6 +1,6 @@
 
 import React from 'react';
-import QuestionPage from '../QuestionPage/QuestionPage';
+// import QuestionPage from '../QuestionPage/QuestionPage';
 
 import { useNavigate } from 'react-router-dom';
 import './MainPage.css'
@@ -15,12 +15,12 @@ const MainPage = () => {
   return (
 
     <>
-    <div>MainPage</div>
-    <QuestionPage />
-    </>
+
+    {/* <QuestionPage /> */}
+  
 
     <button className="btn" onClick={onHandleNavigate}>Играть</button>
-
+  </>
   )
 }
 
