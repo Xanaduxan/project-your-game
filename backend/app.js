@@ -9,7 +9,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const sessionMiddleware = require('./middleware/session');
 const routesRouter = require('./Routes/routes');
-const apiRoute = require('./Routes/apiRoute');
 
 const sessionConfig = {
   store: new FileStore(),
@@ -37,6 +36,5 @@ app.use(cors({
   credentials: true,
 }));
 app.use('/', routesRouter);
-
 
 app.listen(PORT, () => { console.log('я проснулся'); });
