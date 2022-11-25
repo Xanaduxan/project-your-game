@@ -10,7 +10,7 @@ const { questions } = useSelector((state:RootState) => state.questionState)
 const question = questions.find((quest) => quest.id === Number(id));
 
 const [check, setCheck] = useState('none')
-const [flag, setFlag] = useState<null | Boolean>(null);
+
 const [answer, setAnswer] = useState('');
 
 
@@ -41,7 +41,7 @@ const showAnswer = () => {
       value={answer}
       name="answer" type="text" />
       <button onClick={showAnswer} type="submit">Ответить</button>
-    { check === 'right' && (<div className="right">Правильно! Ты заработал</div>)}
+    { check === 'right' && (<div className="right">Правильно! Ты заработал{question?.price}</div>)}
     { check ==='wrong' && (<div className="wrong">Ответ неверный! Правильный ответ:{question?.answer}</div>)}
     </form>
 
