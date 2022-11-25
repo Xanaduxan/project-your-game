@@ -28,7 +28,7 @@ const handleSubmit = (e: React.FormEvent) : void => {
 }
 
 const showAnswer = () => {
-    check === 'right'
+    setCheck('wrong')
 }
 
   return (
