@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import Login from '../features/Login/Login';
 import Registration from '../features/Registration/Registration';
 import QuestionPage from '../features/QuestionPage/QuestionPage';
+import Result from '../features/Result/Result';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
         <Route path="play" element={<QuestionList />} />
         <Route path="registration" element={<Registration />} />
         <Route path="login" element={<Login />} />
-
+        <Route path="results" element={<Result />} />
       </Route>
     </Routes>
   );
