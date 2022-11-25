@@ -1,19 +1,24 @@
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const { User } = require('../db/models');
 const router = require('express').Router();
+const { User } = require('../db/models');
 
-router.post('/registration', async (req, res) => {
+router.post('/', async (req, res) => {
   const {
-    password, email, repitPassword, login,
+    password, email, login,
   } = req.body;
-  if (password && email && repitPassword && login) {
+  console.log(password, email, login);
+  if (password && email && login) {
     const user = await User.findOne({ where: { email } });
+    console.log(user);
     if (user) {
       res.json({ message: 'такой Email уже зарегистрирован' });
     } else {
       const hash = await bcrypt.hash(password, 10);
-      const newUser = await User.create({ password: hash, email, login });
+      const newUser = await User.create({
+        password: hash, email, login, score: 0,
+      });
+      console.log(newUser);
       req.session.user = newUser;
       res.status(200).json({ message: 'вы успешно зарегистрированы', user: newUser.email });
     }
