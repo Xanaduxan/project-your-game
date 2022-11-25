@@ -40,6 +40,7 @@ const showAnswer = () => {
       setTimeout(() => { navigate('/play'); }, 1000);
     } else {
       setCheck('wrong');
+      setTimeout(() => { navigate('/play'); }, 1000);
     }
 };
 
