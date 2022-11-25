@@ -1,11 +1,13 @@
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
+import './Header.css'
 
 
 
 function Header(): JSX.Element {
-  return (<><div className="app__container">
-      <nav className="header__nav">
+  return (
+      < div className="app__container">
+        <nav className="header__nav">
         <div className="header__container">
           <ul className="header__menu">
             <li>
@@ -38,7 +40,9 @@ function Header(): JSX.Element {
         </div>
       </nav>
       <Outlet />
-    </div></>
+      </div>
+      
+    
     
   );
 }
