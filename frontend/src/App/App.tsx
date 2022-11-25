@@ -8,6 +8,8 @@ import QuestionList from '../features/QuestionList/QuestionList';
 import { useDispatch } from 'react-redux';
 import Login from '../features/Registration/Login';
 import Registration from '../features/Registration/Registration';
+import QuestionPage from '../features/QuestionPage/QuestionPage';
+import Result from '../features/Result/Result';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ function App() {
     api.loadQuestion().then((questions) => dispatch({ type: 'INIT_QUESTION', payload: questions }));
   }, [dispatch]);
   return (
+
     <>
       <Header />
       <Routes>
@@ -28,6 +31,7 @@ function App() {
 
       </Routes>
     </>
+
   );
 }
 

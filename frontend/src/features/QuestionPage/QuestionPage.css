@@ -1,0 +1,7 @@
+.right, .wrong {
+    display: block;
+}
+
+.active {
+    display: block;
+}
