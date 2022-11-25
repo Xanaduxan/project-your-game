@@ -2,7 +2,8 @@ import Action from "./types/Action";
 import State from "./types/State";
 
 export const init = {
-  questions: []
+  questions: [],
+  score: 0,
 };
 // reducer.ts
 export const questionReducer = (
@@ -13,7 +14,17 @@ export const questionReducer = (
    case 'INIT_QUESTION':
     return {
       ...state,
-      questions: action.payload
+      questions: action.payload,
+    };
+    case 'SCORE_PLUS': 
+    return {
+      ...state,
+      score: state.score + action.payload,
+    };
+    case 'SCORE_MINUS': 
+    return {
+      ...state,
+      score: state.score - action.payload,
     };
    
    
