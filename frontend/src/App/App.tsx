@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import * as api from '../App/api';
+import * as api from './api';
 import './App.css';
 import Header from '../features/Header/Header';
 import MainPage from '../features/MainPage/MainPage';
@@ -24,11 +24,11 @@ function App() {
 
         <Route path="/" element={<MainPage />} />
         {/* <Route path="main" element={<MainPage />} /> */}
-        {/* <Route path="play/:id" element={<QuestionPage />} /> */}
+        <Route path="play/:id" element={<QuestionPage />} />
         <Route path="/play" element={<QuestionList />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-
+        <Route path="/results" element={<Result />} />
       </Routes>
     </>
 

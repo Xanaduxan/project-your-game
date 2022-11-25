@@ -33,7 +33,7 @@ function Header(): JSX.Element {
                 Результаты
               </NavLink>
             </li><></>
-            <><li>
+           <li>
               <NavLink className="header__item" to="/registration">
                 Регистрация
               </NavLink>
@@ -43,7 +43,7 @@ function Header(): JSX.Element {
                 Войти
               </NavLink>
             </li>
-            </><li>
+            <li>
               <NavLink className="header__item" to="/" onClick={handleLogout}>
                 Выйти
               </NavLink>
