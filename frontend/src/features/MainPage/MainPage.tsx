@@ -1,27 +1,20 @@
-
 import React from 'react';
-// import QuestionPage from '../QuestionPage/QuestionPage';
+
 
 import { useNavigate } from 'react-router-dom';
-import './MainPage.css'
 
+import './MainPage.css';
 
-
-const MainPage = () => {
+function MainPage():JSX.Element {
   const navigate = useNavigate();
   function onHandleNavigate(): void {
-    navigate(`/play`);
+    navigate('/play');
   }
   return (
-
-    <>
-
-    {/* <QuestionPage /> */}
-  
-
-    <button className="btn" onClick={onHandleNavigate}>Играть</button>
-  </>
-  )
+<div className='fatherBtn'>
+    <button type="button" className="btn" onClick={onHandleNavigate}>Играть</button>
+</div>
+  );
 }
 
-export default MainPage
+export default MainPage;

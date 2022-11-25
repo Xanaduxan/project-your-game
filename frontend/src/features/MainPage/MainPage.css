@@ -1,4 +1,19 @@
-.btn{
+.fatherBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .btn{
+  margin: 200px;
   width: 500px;
+  height: 100px;
+  border-radius: 50px;
+  font-size: 30px;
   border: 2px solid blanchedalmond;
+}
+
+.btn:hover{
+ color:brown;
+  border: 2px solid rgb(193, 99, 32);
+  box-shadow:  rgb(184, 174, 174) 1px 1px 4px 1px;
 }
