@@ -13,9 +13,9 @@ const QuestionList = (): JSX.Element => {
   const theme3=questions.slice(10,15)
   return (<div className='list'>
     <div className='themes'>
-    <div className='rowTheme'>Тема 1</div>
-    <div className='rowTheme'>Тема 2</div>
-    <div className='rowTheme'>Тема 3</div>
+    <div className='rowTheme'>Мемы</div>
+    <div className='rowTheme'>kПн</div>
+    <div className='rowTheme'>Эльбрус</div>
     </div>
     <div className='q-list'><div className='rows'>
     {theme1.map((question) =>
