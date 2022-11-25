@@ -1,8 +1,10 @@
 import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
+import { useDispatch } from 'react-redux';
 import * as api from '../../App/api';
 import { Res } from '../Registration/types/User';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
@@ -15,14 +17,18 @@ function Header(): JSX.Element {
   function handleLogout(): void {
     console.log(1);
 
-    api.logout().then((res: Res) => res.message === 'Session destroy' && dispatch({ type: 'LOGOUT' }));
+    api.logout().then((res:Res) => res.message === 'Session destroy' && dispatch({ type: 'LOGOUT' }));
+
     navigate('/');
   }
 
   return (
 
-    < div className="app__container">
-      <nav className="header__nav">
+
+
+      <div className="app__container">
+        <nav className="header__nav">
+
         <div className="header__container">
           <ul className="header__menu">
             {user ? (
@@ -37,6 +43,7 @@ function Header(): JSX.Element {
                 Результаты
               </NavLink>
             </li>
+
              <li>
              <NavLink className="header__item" to="/" onClick={handleLogout}>
                Выйти
@@ -45,11 +52,14 @@ function Header(): JSX.Element {
            </>
             ) : (
               <>
-              <li>
+          
+
+           <li>
+
               <NavLink className="header__item" to="/registration">
                 Регистрация
               </NavLink>
-            </li>
+           </li>
             <li>
               <NavLink className="header__item" to="/login">
                 Войти
@@ -60,8 +70,11 @@ function Header(): JSX.Element {
 
           </ul>
         </div>
+
       </nav>
     </div>
+
+
 
 
 
