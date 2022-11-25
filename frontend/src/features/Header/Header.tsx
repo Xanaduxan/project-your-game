@@ -6,7 +6,8 @@ import './Header.css'
 
 function Header(): JSX.Element {
   return (
-      < div className="app__container"><nav className="header__nav">
+      < div className="app__container">
+        <nav className="header__nav">
         <div className="header__container">
           <ul className="header__menu">
             <li>
