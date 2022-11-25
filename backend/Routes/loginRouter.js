@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const { User } = require('../db/models');
 const router = require('express').Router();
+const { User } = require('../db/models');
 
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
@@ -11,7 +11,8 @@ router.post('/', async (req, res) => {
         where: { email },
       });
       if (user) {
-        const isSame = await await bcrypt.compare(password, user.password);
+        const isSame = await bcrypt.compare(password, user.password);
+        console.log(isSame);
         if (isSame) {
           req.session.user = user;
           req.session.isSession = true;
