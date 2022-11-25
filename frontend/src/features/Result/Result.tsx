@@ -1,11 +1,11 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
-// import { RootState } from '../redux/store'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 const Result = () => {
-  // const { questions } = useSelector((state:RootState) => state.questionState)
+  const { score } = useSelector((state:RootState) => state.questionState)
   return (
-    <div>Result</div>
+    <div>Ваш текущий счет: {score}</div>
   )
 }
 

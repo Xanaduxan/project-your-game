@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './QuestionPage.css';
 import { RootState } from '../redux/store';
 
@@ -8,9 +8,8 @@ function QuestionPage() : JSX.Element {
 const { id } = useParams();
 const { questions } = useSelector((state:RootState) => state.questionState);
 const question = questions.find((quest) => quest.id === Number(id));
-
+const dispatch = useDispatch();
 const [check, setCheck] = useState('none');
-
 const [answer, setAnswer] = useState('');
 const navigate = useNavigate();
 const [count, setCount] = useState(20);
@@ -26,6 +25,7 @@ const handleSubmit = (e: React.FormEvent) : void => {
 //     }
 //   }
 };
+
 useEffect(() => {
   const timer = setTimeout(() => {
     setCount(count - 1);
@@ -34,13 +34,16 @@ if (count === 0) {
     clearTimeout(timer);
 }
 }, [count]);
+
 const showAnswer = () => {
     if (answer.toLowerCase() === question?.answer.toLowerCase()) {
       setCheck('right');
-      setTimeout(() => { navigate('/play'); }, 1000);
+      dispatch({ type: 'SCORE_PLUS', payload: question.price})
+      setTimeout(() => { navigate('/play'); }, 1500);
     } else {
       setCheck('wrong');
-      setTimeout(() => { navigate('/play'); }, 1000);
+      dispatch({ type: 'SCORE_MINUS', payload: question?.price})
+      setTimeout(() => { navigate('/play'); }, 1500);
     }
 };
 
@@ -61,6 +64,7 @@ const showAnswer = () => {
     { check === 'right' && (<div className="right">Правильно! Ты заработал {question?.price}</div>)}
     { check === 'wrong' && (<div className="wrong">Ответ неверный! Правильный ответ: {question?.answer}</div>)}
     </form>
+    <div>{}</div>
 
     </>
   );
